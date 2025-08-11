@@ -232,8 +232,9 @@ async def process_name(message: Message, state: FSMContext):
     
     await message.answer(
         f"👍 Приятно познакомиться, {message.text}!\n\n"
-        f"Теперь введите ваш номер телефона для {action_text}:\n\n"
-        f"Например: +7 999 123-45-67",reply_markup=get_back_keyboard()
+        f"<b>Теперь введите ваш номер телефона для {action_text}:</b>\n\n"
+        f"Например: +7 999 123-45-67",reply_markup=get_back_keyboard(),
+        parse_mode="HTML"
     )
     
 
