@@ -255,6 +255,12 @@ async def process_phone(message: Message, state: FSMContext):
         user_data[user_id]['phone'] = phone
         user_data[user_id]['name'] = name
     
+    user_data[user_id] = {
+        'user_id': user_id,
+        'username': message.from_user.username,
+        'first_name': message.from_user.first_name,
+    }
+   
    
     try:
         success = await save_lead_to_sheets(user_data.get(user_id, {}), name, message.text, action)
